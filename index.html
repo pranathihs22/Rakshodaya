@@ -1,0 +1,1367 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to Rakshodaya. Discover our vision, work, and commitment to building a brighter future.">
+  <meta name="theme-color" content="#142d27">
+  <title>Rakshodaya | Building a Brighter Future</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #142d27;
+      --green-light: #244b40;
+      --gold: #c6a56b;
+      --cream: #f8f6f0;
+      --white: #ffffff;
+      --text: #27342f;
+      --muted: #6c7771;
+      --border: rgba(20, 45, 39, 0.13);
+      --shadow: 0 15px 45px rgba(20, 45, 39, 0.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      color: var(--green);
+    }
+
+    .section-intro {
+      max-width: 660px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 25px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      background: var(--gold);
+      color: var(--green);
+      font-weight: 700;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #d8bb88;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .btn-outline {
+      color: var(--white);
+      background: transparent;
+      border-color: rgba(255,255,255,0.65);
+    }
+
+    .btn-outline:hover {
+      color: var(--green);
+      background: var(--white);
+    }
+
+    /* Navigation */
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      width: 100%;
+      padding: 17px 0;
+      background: rgba(248,246,240,0.95);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid transparent;
+      transition: 0.3s;
+    }
+
+    .header.scrolled {
+      padding: 11px 0;
+      border-color: var(--border);
+      box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+    }
+
+    .brand-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--green);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -7px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 10px 18px;
+      background: var(--green);
+      color: var(--white) !important;
+      border-radius: 3px;
+    }
+
+    .nav-cta::after {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--green);
+      font-size: 1.7rem;
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 760px;
+      min-height: 100svh;
+      padding: 145px 0 90px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(12,34,28,0.97), rgba(12,34,28,0.83) 58%, rgba(12,34,28,0.55)),
+        url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2000&q=85") center/cover;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(198,165,107,0.22);
+      border-radius: 50%;
+      right: -100px;
+      bottom: -160px;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 760px;
+      animation: heroEnter 1s ease both;
+    }
+
+    .hero .eyebrow {
+      color: #dfc38f;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 6.2rem);
+      margin-bottom: 25px;
+      letter-spacing: -1.5px;
+    }
+
+    .hero h1 span {
+      color: #d7b97f;
+    }
+
+    .hero-description {
+      max-width: 600px;
+      color: rgba(255,255,255,0.8);
+      font-size: 1.1rem;
+      margin-bottom: 35px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .hero-note {
+      margin-top: 55px;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+    }
+
+    @keyframes heroEnter {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* About */
+
+    .about {
+      padding: 115px 0;
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 75px;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+      min-height: 480px;
+    }
+
+    .about-image {
+      width: 88%;
+      height: 460px;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+
+    .about-accent {
+      position: absolute;
+      width: 45%;
+      height: 230px;
+      right: 0;
+      bottom: -25px;
+      border: 9px solid var(--white);
+      background:
+        linear-gradient(rgba(20,45,39,0.25), rgba(20,45,39,0.25)),
+        url("https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=700&q=80") center/cover;
+    }
+
+    .about-content h2 {
+      margin-bottom: 25px;
+    }
+
+    .about-content p {
+      margin-bottom: 18px;
+      color: var(--muted);
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+      font-weight: 700;
+      color: var(--green);
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 5px;
+    }
+
+    /* Vision */
+
+    .vision {
+      padding: 105px 0;
+      background: var(--green);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .vision h2 {
+      color: var(--white);
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .vision .section-intro {
+      color: rgba(255,255,255,0.72);
+    }
+
+    .vision-grid {
+      margin-top: 65px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      text-align: left;
+    }
+
+    .vision-card {
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,0.17);
+      transition: 0.3s ease;
+    }
+
+    .vision-card:hover {
+      transform: translateY(-7px);
+      background: rgba(255,255,255,0.06);
+      border-color: var(--gold);
+    }
+
+    .vision-number {
+      font-family: "Playfair Display", serif;
+      color: var(--gold);
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .vision-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .vision-card p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.93rem;
+    }
+
+    /* Focus areas */
+
+    .focus {
+      padding: 115px 0;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .focus-card {
+      position: relative;
+      min-height: 340px;
+      padding: 34px 30px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 25px rgba(20,45,39,0.035);
+      transition: 0.35s;
+    }
+
+    .focus-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .focus-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 25px;
+      background: #f0eadc;
+      color: var(--green);
+      font-size: 1.5rem;
+      border-radius: 50%;
+    }
+
+    .focus-card h3 {
+      color: var(--green);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .focus-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .focus-card a {
+      display: inline-block;
+      margin-top: 25px;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    /* Statement */
+
+    .statement {
+      padding: 105px 0;
+      background:
+        linear-gradient(rgba(20,45,39,0.88), rgba(20,45,39,0.88)),
+        url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=85") center/cover fixed;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .statement h2 {
+      max-width: 850px;
+      margin: 0 auto 25px;
+      color: var(--white);
+    }
+
+    .statement p {
+      max-width: 650px;
+      margin: auto;
+      color: rgba(255,255,255,0.78);
+    }
+
+    /* Contact */
+
+    .contact {
+      padding: 115px 0;
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 70px;
+    }
+
+    .contact-info h2 {
+      margin-bottom: 20px;
+    }
+
+    .contact-info > p {
+      color: var(--muted);
+      margin-bottom: 35px;
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 23px;
+      align-items: flex-start;
+    }
+
+    .contact-detail-icon {
+      width: 43px;
+      height: 43px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      background: #f0eadc;
+      border-radius: 50%;
+    }
+
+    .contact-detail strong {
+      display: block;
+      color: var(--green);
+    }
+
+    .contact-detail span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .contact-form {
+      padding: 40px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+    }
+
+    .contact-form h3 {
+      color: var(--green);
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      color: var(--green);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid rgba(20,45,39,0.18);
+      border-radius: 2px;
+      background: var(--white);
+      outline: none;
+      color: var(--text);
+      transition: border 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+      border: none;
+    }
+
+    .form-message {
+      margin-top: 12px;
+      color: var(--green);
+      font-size: 0.85rem;
+    }
+
+    /* Footer */
+
+    .footer {
+      padding: 70px 0 25px;
+      background: #10251f;
+      color: var(--white);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 55px;
+      padding-bottom: 55px;
+    }
+
+    .footer .brand {
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer-description {
+      max-width: 360px;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+    }
+
+    .footer h3 {
+      font-family: "DM Sans", sans-serif;
+      font-size: 1rem;
+      margin-bottom: 22px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.67);
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.13);
+      padding-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.82rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .social-links a:hover {
+      color: var(--gold);
+    }
+
+    /* Floating controls */
+
+    .back-to-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 800;
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      border: none;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--green);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: 0.3s;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1200;
+      width: 0;
+      height: 3px;
+      background: var(--gold);
+    }
+
+    /* Reveal animation */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 1000px) {
+      .nav-links {
+        gap: 17px;
+      }
+
+      .nav-links a {
+        font-size: 0.8rem;
+      }
+
+      .about-grid {
+        gap: 40px;
+      }
+
+      .focus-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 5% 20px;
+        background: var(--cream);
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 15px 25px rgba(0,0,0,0.07);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: 0.25s;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .nav-links li {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links li:last-child {
+        border: none;
+        padding-top: 15px;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 13px 0;
+        font-size: 0.95rem;
+      }
+
+      .nav-links .nav-cta {
+        display: inline-block;
+        padding: 10px 18px;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-visual {
+        max-width: 600px;
+        width: 100%;
+        margin: auto;
+      }
+
+      .vision-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid > div:first-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: 88%;
+      }
+
+      .brand-name {
+        font-size: 1.25rem;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        font-size: 1.2rem;
+      }
+
+      .hero {
+        min-height: 700px;
+        padding-top: 125px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.8rem, 13vw, 4rem);
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .about,
+      .focus,
+      .contact {
+        padding: 80px 0;
+      }
+
+      .about-visual {
+        min-height: 350px;
+      }
+
+      .about-image {
+        height: 340px;
+      }
+
+      .about-accent {
+        height: 150px;
+      }
+
+      .focus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .focus-card {
+        min-height: auto;
+      }
+
+      .contact-form {
+        padding: 25px 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .footer-grid > div:first-child {
+        grid-column: auto;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .statement {
+        background-attachment: scroll;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="Rakshodaya home">
+        <span class="brand-mark">R</span>
+        <span class="brand-name">RAKSHODAYA</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#vision">Our Vision</a></li>
+        <li><a href="#focus">What We Do</a></li>
+        <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Welcome to Rakshodaya</div>
+          <h1>Building a <span>Brighter</span> Future</h1>
+          <p class="hero-description">
+            A vision for meaningful progress, purposeful action,
+            and a future shaped by ideas, dedication, and collective effort.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#about" class="btn">Discover Our Story <span>→</span></a>
+            <a href="#contact" class="btn btn-outline">Connect With Us</a>
+          </div>
+
+          <p class="hero-note">VISION · PURPOSE · PROGRESS</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-visual reveal">
+          <img
+            class="about-image"
+            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1000&q=85"
+            alt="Mountain landscape"
+            loading="lazy"
+          >
+          <div class="about-accent"></div>
+        </div>
+
+        <div class="about-content reveal">
+          <div class="eyebrow">Who We Are</div>
+          <h2>A Purpose-Driven Journey</h2>
+          <p>
+            Rakshodaya is a name that represents a vision of growth,
+            purpose, and positive transformation.
+          </p>
+          <p>
+            Our goal is to build a meaningful presence through
+            thoughtful planning, commitment, and a forward-looking
+            approach.
+          </p>
+          <p>
+            We believe that lasting progress begins with a clear
+            purpose and grows through consistent action.
+          </p>
+          <a href="#vision" class="text-link">Explore Our Vision <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision -->
+    <section class="vision" id="vision">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Our Direction</div>
+          <h2>Driven by Purpose, Guided by Vision</h2>
+          <p class="section-intro">
+            Our guiding principles shape the way we approach
+            opportunities, challenges, and the future.
+          </p>
+        </div>
+
+        <div class="vision-grid">
+          <article class="vision-card reveal">
+            <div class="vision-number">01</div>
+            <h3>Our Vision</h3>
+            <p>
+              To establish a meaningful and lasting presence
+              through purposeful work and a clear direction.
+            </p>
+          </article>
+
+          <article class="vision-card reveal">
+            <div class="vision-number">02</div>
+            <h3>Our Mission</h3>
+            <p>
+              To pursue our goals with dedication, thoughtful
+              execution, and a commitment to continuous progress.
+            </p>
+          </article>
+
+          <article class="vision-card reveal">
+            <div class="vision-number">03</div>
+            <h3>Our Values</h3>
+            <p>
+              To place integrity, responsibility, collaboration,
+              and quality at the centre of our work.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="focus" id="focus">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Our Approach</div>
+          <h2>Ideas Into Action</h2>
+          <p class="section-intro">
+            Our approach is built around thoughtful decisions,
+            meaningful relationships, and a commitment to progress.
+          </p>
+        </div>
+
+        <div class="focus-grid">
+          <article class="focus-card reveal">
+            <div class="focus-icon">✦</div>
+            <h3>Purposeful Planning</h3>
+            <p>
+              Setting clear goals and creating thoughtful
+              strategies to move forward with direction.
+            </p>
+            <a href="#contact">Learn More →</a>
+          </article>
+
+          <article class="focus-card reveal">
+            <div class="focus-icon">◇</div>
+            <h3>Innovation</h3>
+            <p>
+              Exploring fresh perspectives and practical
+              ideas to respond to changing opportunities.
+            </p>
+            <a href="#contact">Learn More →</a>
+          </article>
+
+          <article class="focus-card reveal">
+            <div class="focus-icon">◎</div>
+            <h3>Collaboration</h3>
+            <p>
+              Building connections and working together
+              to create meaningful outcomes.
+            </p>
+            <a href="#contact">Learn More →</a>
+          </article>
+
+          <article class="focus-card reveal">
+            <div class="focus-icon">⌁</div>
+            <h3>Quality & Excellence</h3>
+            <p>
+              Giving attention to detail and maintaining
+              high standards in everything we undertake.
+            </p>
+            <a href="#contact">Learn More →</a>
+          </article>
+
+          <article class="focus-card reveal">
+            <div class="focus-icon">✧</div>
+            <h3>Responsible Growth</h3>
+            <p>
+              Taking a considered approach to growth,
+              sustainability, and long-term impact.
+            </p>
+            <a href="#contact">Learn More →</a>
+          </article>
+
+          <article class="focus-card reveal">
+            <div class="focus-icon">↗</div>
+            <h3>Future Readiness</h3>
+            <p>
+              Staying open to learning, adapting,
+              and preparing for new possibilities.
+            </p>
+            <a href="#contact">Learn More →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statement -->
+    <section class="statement">
+      <div class="container reveal">
+        <div class="eyebrow">The Rakshodaya Perspective</div>
+        <h2>Every meaningful journey begins with a vision.</h2>
+        <p>
+          With clarity of purpose and commitment to progress,
+          we look forward to creating opportunities for a
+          better tomorrow.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info reveal">
+          <div class="eyebrow">Get In Touch</div>
+          <h2>Let's Start a Conversation</h2>
+          <p>
+            Have a question, an idea, or an opportunity to discuss?
+            Reach out to us. We would be glad to hear from you.
+          </p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">✉</div>
+            <div>
+              <strong>Email</strong>
+              <span>your-email@example.com</span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">⌖</div>
+            <div>
+              <strong>Location</strong>
+              <span>Your location or business address</span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">☎</div>
+            <div>
+              <strong>Phone</strong>
+              <span>+91 XXXXX XXXXX</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <h3>Send Us a Message</h3>
+
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name"
+              placeholder="Enter your name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"
+              placeholder="Enter your email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject"
+              placeholder="What is this regarding?" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message"
+              placeholder="Write your message here..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn">Send Message →</button>
+          <p class="form-message" id="formMessage" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#home" class="brand">
+            <span class="brand-mark">R</span>
+            <span class="brand-name">RAKSHODAYA</span>
+          </a>
+          <p class="footer-description">
+            A vision for meaningful progress, purposeful action,
+            and a brighter future.
+          </p>
+        </div>
+
+        <div>
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#vision">Our Vision</a></li>
+            <li><a href="#focus">What We Do</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Connect</h3>
+          <ul class="footer-links">
+            <li><a href="mailto:your-email@example.com">Email Us</a></li>
+            <li><a href="#contact">Send an Enquiry</a></li>
+            <!-- Add your actual social media links here -->
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Rakshodaya. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#home" aria-label="Back to top">Back to Top ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop"
+    aria-label="Back to top">↑</button>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    // Close mobile menu after selecting a link
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Header and scroll progress
+    const header = document.getElementById("header");
+    const progress = document.getElementById("scrollProgress");
+    const backToTop = document.getElementById("backToTop");
+
+    function handleScroll() {
+      const scrollTop = window.scrollY;
+      const scrollable =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const percentage = scrollable > 0
+        ? (scrollTop / scrollable) * 100
+        : 0;
+
+      progress.style.width = percentage + "%";
+      header.classList.toggle("scrolled", scrollTop > 30);
+      backToTop.classList.toggle("visible", scrollTop > 450);
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    // Back to top
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("active"));
+    }
+
+    // Current year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Contact form: opens the visitor's email application.
+    // Replace this address with Rakshodaya's actual email.
+    const contactForm = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const recipient = "your-email@example.com";
+
+      if (!name || !email || !subject || !message) {
+        formMessage.textContent = "Please complete all fields.";
+        return;
+      }
+
+      const body =
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n\n" +
+        message;
+
+      const mailto =
+        "mailto:" + recipient +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      formMessage.textContent =
+        "Your email application will open to send the message.";
+
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>

@@ -686,6 +686,29 @@ footer { padding: 60px 0 25px; background: #100905; }
   .about-points { grid-template-columns: 1fr; }
 }
 
+
+/* Keep the mobile menu control at the far right of the header row */
+@media (max-width: 800px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 75px;
+    position: relative;
+  }
+  .navbar .brand,
+  .navbar .nav-actions { display: none; }
+  .navbar .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 1002;
+  }
+}
+
 </style>
 </head>
 

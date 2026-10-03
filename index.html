@@ -597,6 +597,95 @@ footer { padding: 60px 0 25px; background: #100905; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* Mobile refinement: preserve the desktop visual identity without squeezing columns */
+@media (max-width: 600px) {
+  .container { width: min(100% - 36px, 520px); }
+  .hero { padding: 104px 0 42px; }
+  .hero-grid,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .hero-content { max-width: 100%; }
+  .hero h1 {
+    font-size: clamp(2.65rem, 11vw, 3.65rem);
+    line-height: .99;
+    letter-spacing: -.045em;
+    margin-bottom: 20px;
+  }
+  .hero-copy {
+    font-size: .94rem;
+    line-height: 1.7;
+    max-width: 48ch;
+  }
+  .hero-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .hero-buttons .btn {
+    width: auto;
+    flex: 1 1 145px;
+    min-height: 46px;
+    font-size: .82rem;
+  }
+  .service-ribbon {
+    line-height: 1.9;
+    font-size: .72rem;
+  }
+  .hero-logo {
+    min-height: 0;
+    padding: 4px 0 0;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-logo img {
+    display: block;
+    width: min(78%, 310px);
+    max-width: 310px;
+    max-height: none;
+    margin: 0 auto;
+    /* Shift the gold artwork toward a muted warm brown on small screens */
+    filter: sepia(.58) saturate(.68) hue-rotate(342deg) brightness(.82);
+  }
+  .about-logo {
+    min-height: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .about-logo img {
+    width: min(74%, 280px);
+    max-width: 280px;
+    max-height: none;
+    filter: sepia(.58) saturate(.68) hue-rotate(342deg) brightness(.82);
+  }
+  .about-copy p { font-size: .91rem; line-height: 1.7; }
+  .about-points { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .section { padding: 58px 0; }
+  .section-heading { margin-bottom: 28px; }
+  .section-heading h2,
+  .about-copy h2 { font-size: clamp(1.9rem, 8vw, 2.6rem); line-height: 1.12; }
+  .cards-grid,
+  .packages-grid,
+  .industry-grid,
+  .process-grid { grid-template-columns: 1fr; gap: 14px; }
+  .service-card,
+  .package-card { padding: 22px; }
+  .industry { padding: 15px; }
+  .trust-inner { flex-wrap: wrap; justify-content: center; gap: 10px 18px; }
+  .nav-actions .btn { display: none; }
+  .nav-links { max-height: min(70vh, 520px); overflow-y: auto; }
+  .floating-actions { right: 16px; bottom: 18px; }
+}
+@media (max-width: 380px) {
+  .container { width: calc(100% - 28px); }
+  .hero h1 { font-size: 2.45rem; }
+  .about-points { grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 

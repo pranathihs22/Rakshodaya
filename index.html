@@ -2,1366 +2,1271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Welcome to Rakshodaya. Discover our vision, work, and commitment to building a brighter future.">
-  <meta name="theme-color" content="#142d27">
-  <title>Rakshodaya | Building a Brighter Future</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --green: #142d27;
-      --green-light: #244b40;
-      --gold: #c6a56b;
-      --cream: #f8f6f0;
-      --white: #ffffff;
-      --text: #27342f;
-      --muted: #6c7771;
-      --border: rgba(20, 45, 39, 0.13);
-      --shadow: 0 15px 45px rgba(20, 45, 39, 0.09);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      font-family: "DM Sans", sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button, input, textarea {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    .container {
-      width: min(1160px, 90%);
-      margin: auto;
-    }
-
-    .eyebrow {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.76rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
-
-    h1, h2, h3 {
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
-      line-height: 1.2;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3.25rem);
-      color: var(--green);
-    }
-
-    .section-intro {
-      max-width: 660px;
-      margin: 18px auto 0;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 55px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 25px;
-      border: 1px solid transparent;
-      border-radius: 3px;
-      background: var(--gold);
-      color: var(--green);
-      font-weight: 700;
-      transition: 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #d8bb88;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    }
-
-    .btn-outline {
-      color: var(--white);
-      background: transparent;
-      border-color: rgba(255,255,255,0.65);
-    }
-
-    .btn-outline:hover {
-      color: var(--green);
-      background: var(--white);
-    }
-
-    /* Navigation */
-
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      width: 100%;
-      padding: 17px 0;
-      background: rgba(248,246,240,0.95);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid transparent;
-      transition: 0.3s;
-    }
-
-    .header.scrolled {
-      padding: 11px 0;
-      border-color: var(--border);
-      box-shadow: 0 5px 25px rgba(0,0,0,0.05);
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 25px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--green);
-      flex-shrink: 0;
-    }
-
-    .brand-mark {
-      display: grid;
-      place-items: center;
-      width: 43px;
-      height: 43px;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      font-family: "Playfair Display", serif;
-      font-size: 1.4rem;
-      color: var(--gold);
-    }
-
-    .brand-name {
-      font-family: "Playfair Display", serif;
-      font-size: 1.45rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      position: relative;
-      color: var(--green);
-      font-size: 0.88rem;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      bottom: -7px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gold);
-      transition: width 0.3s;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-cta {
-      padding: 10px 18px;
-      background: var(--green);
-      color: var(--white) !important;
-      border-radius: 3px;
-    }
-
-    .nav-cta::after {
-      display: none;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--green);
-      font-size: 1.7rem;
-    }
-
-    /* Hero */
-
-    .hero {
-      min-height: 760px;
-      min-height: 100svh;
-      padding: 145px 0 90px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      color: var(--white);
-      background:
-        linear-gradient(90deg, rgba(12,34,28,0.97), rgba(12,34,28,0.83) 58%, rgba(12,34,28,0.55)),
-        url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2000&q=85") center/cover;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      border: 1px solid rgba(198,165,107,0.22);
-      border-radius: 50%;
-      right: -100px;
-      bottom: -160px;
-    }
-
-    .hero-content {
-      position: relative;
-      max-width: 760px;
-      animation: heroEnter 1s ease both;
-    }
-
-    .hero .eyebrow {
-      color: #dfc38f;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 7vw, 6.2rem);
-      margin-bottom: 25px;
-      letter-spacing: -1.5px;
-    }
-
-    .hero h1 span {
-      color: #d7b97f;
-    }
-
-    .hero-description {
-      max-width: 600px;
-      color: rgba(255,255,255,0.8);
-      font-size: 1.1rem;
-      margin-bottom: 35px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .hero-note {
-      margin-top: 55px;
-      color: rgba(255,255,255,0.65);
-      font-size: 0.82rem;
-      letter-spacing: 1px;
-    }
-
-    @keyframes heroEnter {
-      from {
-        opacity: 0;
-        transform: translateY(35px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* About */
-
-    .about {
-      padding: 115px 0;
-      background: var(--white);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 75px;
-      align-items: center;
-    }
-
-    .about-visual {
-      position: relative;
-      min-height: 480px;
-    }
-
-    .about-image {
-      width: 88%;
-      height: 460px;
-      object-fit: cover;
-      border-radius: 3px;
-    }
-
-    .about-accent {
-      position: absolute;
-      width: 45%;
-      height: 230px;
-      right: 0;
-      bottom: -25px;
-      border: 9px solid var(--white);
-      background:
-        linear-gradient(rgba(20,45,39,0.25), rgba(20,45,39,0.25)),
-        url("https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=700&q=80") center/cover;
-    }
-
-    .about-content h2 {
-      margin-bottom: 25px;
-    }
-
-    .about-content p {
-      margin-bottom: 18px;
-      color: var(--muted);
-    }
-
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 15px;
-      font-weight: 700;
-      color: var(--green);
-      border-bottom: 1px solid var(--gold);
-      padding-bottom: 5px;
-    }
-
-    /* Vision */
-
-    .vision {
-      padding: 105px 0;
-      background: var(--green);
-      color: var(--white);
-      text-align: center;
-    }
-
-    .vision h2 {
-      color: var(--white);
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .vision .section-intro {
-      color: rgba(255,255,255,0.72);
-    }
-
-    .vision-grid {
-      margin-top: 65px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      text-align: left;
-    }
-
-    .vision-card {
-      padding: 30px;
-      border: 1px solid rgba(255,255,255,0.17);
-      transition: 0.3s ease;
-    }
-
-    .vision-card:hover {
-      transform: translateY(-7px);
-      background: rgba(255,255,255,0.06);
-      border-color: var(--gold);
-    }
-
-    .vision-number {
-      font-family: "Playfair Display", serif;
-      color: var(--gold);
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-
-    .vision-card h3 {
-      font-size: 1.45rem;
-      margin-bottom: 12px;
-    }
-
-    .vision-card p {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.93rem;
-    }
-
-    /* Focus areas */
-
-    .focus {
-      padding: 115px 0;
-    }
-
-    .focus-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .focus-card {
-      position: relative;
-      min-height: 340px;
-      padding: 34px 30px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      box-shadow: 0 8px 25px rgba(20,45,39,0.035);
-      transition: 0.35s;
-    }
-
-    .focus-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow);
-    }
-
-    .focus-icon {
-      width: 54px;
-      height: 54px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 25px;
-      background: #f0eadc;
-      color: var(--green);
-      font-size: 1.5rem;
-      border-radius: 50%;
-    }
-
-    .focus-card h3 {
-      color: var(--green);
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-    }
-
-    .focus-card p {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .focus-card a {
-      display: inline-block;
-      margin-top: 25px;
-      color: var(--green);
-      font-weight: 700;
-    }
-
-    /* Statement */
-
-    .statement {
-      padding: 105px 0;
-      background:
-        linear-gradient(rgba(20,45,39,0.88), rgba(20,45,39,0.88)),
-        url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=85") center/cover fixed;
-      text-align: center;
-      color: var(--white);
-    }
-
-    .statement h2 {
-      max-width: 850px;
-      margin: 0 auto 25px;
-      color: var(--white);
-    }
-
-    .statement p {
-      max-width: 650px;
-      margin: auto;
-      color: rgba(255,255,255,0.78);
-    }
-
-    /* Contact */
-
-    .contact {
-      padding: 115px 0;
-      background: var(--white);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 70px;
-    }
-
-    .contact-info h2 {
-      margin-bottom: 20px;
-    }
-
-    .contact-info > p {
-      color: var(--muted);
-      margin-bottom: 35px;
-    }
-
-    .contact-detail {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 23px;
-      align-items: flex-start;
-    }
-
-    .contact-detail-icon {
-      width: 43px;
-      height: 43px;
-      flex-shrink: 0;
-      display: grid;
-      place-items: center;
-      color: var(--green);
-      background: #f0eadc;
-      border-radius: 50%;
-    }
-
-    .contact-detail strong {
-      display: block;
-      color: var(--green);
-    }
-
-    .contact-detail span {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .contact-form {
-      padding: 40px;
-      background: var(--cream);
-      border: 1px solid var(--border);
-    }
-
-    .contact-form h3 {
-      color: var(--green);
-      font-size: 1.8rem;
-      margin-bottom: 25px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      color: var(--green);
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 13px 14px;
-      border: 1px solid rgba(20,45,39,0.18);
-      border-radius: 2px;
-      background: var(--white);
-      outline: none;
-      color: var(--text);
-      transition: border 0.2s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--gold);
-    }
-
-    .form-group textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
-    .contact-form .btn {
-      width: 100%;
-      border: none;
-    }
-
-    .form-message {
-      margin-top: 12px;
-      color: var(--green);
-      font-size: 0.85rem;
-    }
-
-    /* Footer */
-
-    .footer {
-      padding: 70px 0 25px;
-      background: #10251f;
-      color: var(--white);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 55px;
-      padding-bottom: 55px;
-    }
-
-    .footer .brand {
-      color: var(--white);
-      margin-bottom: 20px;
-    }
-
-    .footer-description {
-      max-width: 360px;
-      color: rgba(255,255,255,0.65);
-      font-size: 0.9rem;
-    }
-
-    .footer h3 {
-      font-family: "DM Sans", sans-serif;
-      font-size: 1rem;
-      margin-bottom: 22px;
-    }
-
-    .footer-links {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 12px;
-    }
-
-    .footer-links a {
-      color: rgba(255,255,255,0.67);
-      font-size: 0.9rem;
-      transition: 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: var(--gold);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.13);
-      padding-top: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      color: rgba(255,255,255,0.55);
-      font-size: 0.82rem;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 18px;
-    }
-
-    .social-links a:hover {
-      color: var(--gold);
-    }
-
-    /* Floating controls */
-
-    .back-to-top {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      z-index: 800;
-      width: 45px;
-      height: 45px;
-      display: grid;
-      place-items: center;
-      border: none;
-      border-radius: 50%;
-      color: var(--white);
-      background: var(--green);
-      box-shadow: var(--shadow);
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(10px);
-      transition: 0.3s;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1200;
-      width: 0;
-      height: 3px;
-      background: var(--gold);
-    }
-
-    /* Reveal animation */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Responsive */
-
-    @media (max-width: 1000px) {
-      .nav-links {
-        gap: 17px;
-      }
-
-      .nav-links a {
-        font-size: 0.8rem;
-      }
-
-      .about-grid {
-        gap: 40px;
-      }
-
-      .focus-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 800px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 10px 5% 20px;
-        background: var(--cream);
-        border-bottom: 1px solid var(--border);
-        box-shadow: 0 15px 25px rgba(0,0,0,0.07);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: 0.25s;
-      }
-
-      .nav-links.open {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-
-      .nav-links li {
-        border-bottom: 1px solid var(--border);
-      }
-
-      .nav-links li:last-child {
-        border: none;
-        padding-top: 15px;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 13px 0;
-        font-size: 0.95rem;
-      }
-
-      .nav-links .nav-cta {
-        display: inline-block;
-        padding: 10px 18px;
-      }
-
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-visual {
-        max-width: 600px;
-        width: 100%;
-        margin: auto;
-      }
-
-      .vision-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .footer-grid > div:first-child {
-        grid-column: 1 / -1;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .container {
-        width: 88%;
-      }
-
-      .brand-name {
-        font-size: 1.25rem;
-      }
-
-      .brand-mark {
-        width: 38px;
-        height: 38px;
-        font-size: 1.2rem;
-      }
-
-      .hero {
-        min-height: 700px;
-        padding-top: 125px;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.8rem, 13vw, 4rem);
-      }
-
-      .hero-description {
-        font-size: 1rem;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-      }
-
-      .about,
-      .focus,
-      .contact {
-        padding: 80px 0;
-      }
-
-      .about-visual {
-        min-height: 350px;
-      }
-
-      .about-image {
-        height: 340px;
-      }
-
-      .about-accent {
-        height: 150px;
-      }
-
-      .focus-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .focus-card {
-        min-height: auto;
-      }
-
-      .contact-form {
-        padding: 25px 20px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .footer-grid > div:first-child {
-        grid-column: auto;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .statement {
-        background-attachment: scroll;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100b08">
+<meta name="description" content="MAPOWE COMPANY SP provides integrated manpower and facility management services including security, housekeeping, contract labour, fire safety, landscaping, cleaning and pest control.">
+<meta name="keywords" content="Mapowe Company SP, manpower services, security, housekeeping, facility management, contract labour, fire safety">
+<title>MAPOWE COMPANY SP | Integrated Manpower & Facility Management</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+  --bg:#100b08;
+  --bg2:#19110d;
+  --panel:#211711;
+  --panel2:#2b1e16;
+  --gold:#d5a65f;
+  --gold2:#f0cf91;
+  --copper:#a9683e;
+  --cream:#f4e8d3;
+  --muted:#c0ad98;
+  --border:rgba(213,166,95,.25);
+  --green:#25d366;
+  --shadow:0 20px 60px rgba(0,0,0,.32);
+  --radius:18px;
+  --max:1200px;
+}
+
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth;scroll-padding-top:90px}
+body {
+  font-family:"DM Sans",sans-serif;
+  background:var(--bg);
+  color:var(--cream);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+body.no-scroll {overflow:hidden}
+a {color:inherit;text-decoration:none}
+button,input,select,textarea {font:inherit}
+button {cursor:pointer}
+img {max-width:100%;display:block}
+.container {width:min(92%,var(--max));margin:auto}
+section {padding:100px 0;position:relative}
+.section-label {
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.section-title {
+  font:600 clamp(34px,5vw,56px)/1.1 "Cormorant Garamond",serif;
+  color:var(--cream);
+  margin-bottom:18px;
+}
+.section-intro {max-width:720px;color:var(--muted);font-size:15px}
+.gold-text {color:var(--gold2)}
+.btn {
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  border:1px solid var(--gold);padding:13px 23px;border-radius:5px;
+  font-size:13px;font-weight:700;letter-spacing:.3px;
+  transition:.3s ease;
+}
+.btn-primary {background:linear-gradient(135deg,var(--gold2),var(--copper));color:#1a1009;border:0}
+.btn-outline {color:var(--gold2);background:transparent}
+.btn:hover {transform:translateY(-3px);box-shadow:0 10px 25px #0005}
+.btn-primary:hover {filter:brightness(1.12)}
+.divider {height:1px;background:var(--border);width:100%}
+
+/* LOADER */
+.loader {
+  position:fixed;inset:0;z-index:9999;background:#100b08;
+  display:grid;place-items:center;transition:opacity .7s,visibility .7s;
+}
+.loader.hide {opacity:0;visibility:hidden}
+.loader-inner {text-align:center}
+.loader-logo {width:170px;height:170px;object-fit:contain;margin:auto;animation:logoPulse 1.8s infinite}
+.loader-name {font:700 24px "Cormorant Garamond",serif;letter-spacing:5px;color:var(--gold2)}
+.loader-line {height:2px;width:130px;margin:20px auto;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:linePulse 1.3s infinite}
+@keyframes logoPulse {50%{transform:scale(1.04);filter:drop-shadow(0 0 15px #d5a65f55)}}
+@keyframes linePulse {50%{opacity:.3;transform:scaleX(.6)}}
+
+/* SCROLL PROGRESS */
+.progress {position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--copper),var(--gold2));z-index:1001}
+
+/* HEADER */
+header {
+  position:sticky;top:0;z-index:1000;
+  background:rgba(16,11,8,.94);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.nav {
+  width:min(94%,1400px);margin:auto;min-height:82px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.brand {display:flex;align-items:center;gap:12px;min-width:max-content}
+.brand img {width:55px;height:55px;object-fit:contain}
+.brand-copy {line-height:1.15}
+.brand-copy strong {font:700 22px "Cormorant Garamond",serif;letter-spacing:2px;color:var(--gold2)}
+.brand-copy span {display:block;font-size:8px;letter-spacing:1.5px;color:var(--muted);margin-top:5px}
+.nav-links {display:flex;align-items:center;gap:20px}
+.nav-links a {font-size:11px;color:#e6d8c5;transition:.25s}
+.nav-links a:hover {color:var(--gold2)}
+.nav-actions {display:flex;align-items:center;gap:10px}
+.nav-quote {font-size:11px;padding:10px 15px}
+.menu-toggle {
+  display:none;border:1px solid var(--border);background:transparent;color:var(--gold2);
+  width:42px;height:42px;border-radius:5px;font-size:18px;
+}
+
+/* HERO */
+.hero {
+  min-height:680px;padding:100px 0 90px;display:flex;align-items:center;
+  background:
+    radial-gradient(ellipse at 78% 45%,rgba(169,104,62,.18),transparent 45%),
+    linear-gradient(115deg,#100b08 0%,#19110d 65%,#24170f 100%);
+  overflow:hidden;
+}
+.hero:before {
+  content:"";position:absolute;width:500px;height:500px;border:1px solid #d5a65f18;
+  border-radius:50%;right:-160px;top:60px;
+  box-shadow:0 0 0 50px #d5a65f08,0 0 0 100px #d5a65f05;
+}
+.hero-grid {display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;position:relative;z-index:1}
+.hero-kicker {color:var(--gold2);font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:20px}
+.hero h1 {font:600 clamp(48px,7vw,88px)/.98 "Cormorant Garamond",serif;max-width:760px;margin-bottom:25px}
+.hero h1 span {color:var(--gold2);font-style:italic}
+.hero-copy {max-width:650px;color:#d1c0ac;font-size:15px;line-height:1.9;margin-bottom:28px}
+.service-ribbon {color:var(--gold2);font-size:11px;letter-spacing:.7px;line-height:2;margin:25px 0}
+.hero-buttons {display:flex;flex-wrap:wrap;gap:13px}
+.hero-visual {display:flex;justify-content:center;align-items:center;position:relative}
+.hero-logo {
+  width:min(100%,420px);aspect-ratio:1;object-fit:contain;
+  filter:drop-shadow(0 25px 40px #0009);
+  animation:floatLogo 6s ease-in-out infinite;
+}
+@keyframes floatLogo {50%{transform:translateY(-10px)}}
+.hero-note {
+  position:absolute;bottom:20px;right:0;background:#211711eF;
+  border:1px solid var(--border);padding:15px 20px;max-width:210px;
+  box-shadow:var(--shadow);font-size:11px;color:var(--muted);
+}
+.hero-note strong {display:block;color:var(--gold2);font-size:14px;margin-bottom:3px}
+
+/* TRUST STRIP */
+.trust-strip {padding:25px 0;background:#1a120d;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.trust-items {display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.trust-item {display:flex;align-items:center;gap:10px;color:var(--muted);font-size:11px}
+.trust-item i {color:var(--gold);font-size:17px}
+
+/* ABOUT */
+.about-grid {display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:center}
+.about-visual {
+  min-height:430px;position:relative;display:grid;place-items:center;
+  background:linear-gradient(145deg,#2b1e16,#130e0a);
+  border:1px solid var(--border);overflow:hidden;border-radius:var(--radius);
+}
+.about-visual:before,.about-visual:after {
+  content:"";position:absolute;border:1px solid #d5a65f35;border-radius:50%;
+}
+.about-visual:before {width:290px;height:290px}
+.about-visual:after {width:360px;height:360px}
+.about-emblem {width:230px;position:relative;z-index:1;opacity:.95;filter:drop-shadow(0 15px 25px #0008)}
+.about-copy p {color:var(--muted);font-size:14px;margin-bottom:18px}
+.about-points {display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:25px}
+.about-point {border-left:2px solid var(--gold);padding:5px 0 5px 13px;color:var(--cream);font-size:12px}
+
+/* SERVICES */
+.services-section {background:linear-gradient(180deg,#19110d,#100b08)}
+.section-heading {display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:45px}
+.services-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.service-card {
+  background:linear-gradient(145deg,#251a13,#19110d);
+  border:1px solid var(--border);padding:28px 23px;border-radius:12px;
+  min-height:265px;position:relative;overflow:hidden;transition:.35s;
+}
+.service-card:before {
+  content:"";position:absolute;width:120px;height:120px;border-radius:50%;
+  background:#d5a65f0b;right:-50px;top:-50px;transition:.4s;
+}
+.service-card:hover {transform:translateY(-7px);border-color:var(--gold);box-shadow:var(--shadow)}
+.service-card:hover:before {transform:scale(1.8)}
+.service-icon {
+  width:50px;height:50px;border:1px solid #d5a65f55;color:var(--gold2);
+  display:grid;place-items:center;border-radius:10px;font-size:21px;margin-bottom:20px;
+  position:relative;
+}
+.service-card h3 {font:600 24px "Cormorant Garamond",serif;margin-bottom:10px;color:var(--cream)}
+.service-card p {font-size:12px;color:var(--muted);line-height:1.8}
+.service-card a {display:inline-flex;align-items:center;gap:7px;color:var(--gold2);font-size:11px;margin-top:17px}
+.service-card a:hover {gap:12px}
+
+/* SERVICE MENU */
+.menu-section {background:#19110d}
+.menu-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.menu-card {border:1px solid var(--border);padding:25px;background:#211711;border-radius:12px}
+.menu-card h3 {font:600 23px "Cormorant Garamond",serif;color:var(--gold2);margin-bottom:13px}
+.menu-card ul {list-style:none}
+.menu-card li {font-size:12px;color:var(--muted);padding:7px 0;border-bottom:1px solid #d5a65f12}
+.menu-card li:before {content:"✦";color:var(--copper);margin-right:9px;font-size:9px}
+
+/* PACKAGES */
+.packages-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:45px}
+.package {
+  background:linear-gradient(160deg,#2a1d15,#19110d);
+  border:1px solid var(--border);border-radius:14px;padding:35px 28px;position:relative;
+  transition:.3s;
+}
+.package:hover {transform:translateY(-6px);border-color:var(--gold)}
+.package.featured {border-color:var(--gold);box-shadow:0 15px 45px #0004}
+.package-tag {font-size:9px;letter-spacing:2px;color:#1a1009;background:var(--gold2);padding:5px 10px;display:inline-block;margin-bottom:15px}
+.package h3 {font:600 30px "Cormorant Garamond",serif;margin-bottom:10px}
+.package p {font-size:12px;color:var(--muted);margin-bottom:20px}
+.package ul {list-style:none;margin-bottom:25px}
+.package li {font-size:12px;color:#e2d3bf;padding:8px 0;border-bottom:1px solid #d5a65f15}
+.package li i {color:var(--gold);margin-right:9px}
+.package .btn {width:100%}
+
+/* ONE ROOF */
+.roof {background:linear-gradient(135deg,#24180f,#120d09);overflow:hidden}
+.roof-grid {display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.roof-copy p {font-size:14px;color:var(--muted);margin-bottom:20px}
+.flow-list {display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.flow-item {
+  padding:18px;border:1px solid var(--border);background:#1b130e;
+  display:flex;align-items:center;gap:12px;border-radius:8px;
+}
+.flow-item i {color:var(--gold2);font-size:18px;width:25px;text-align:center}
+.flow-item span {font-size:12px;color:var(--cream)}
+
+/* INDUSTRIES */
+.industries-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.industry {
+  min-height:110px;border:1px solid var(--border);border-radius:10px;
+  display:flex;align-items:center;gap:14px;padding:20px;background:#19110d;
+  transition:.3s;
+}
+.industry:hover {background:#2a1d15;border-color:var(--gold);transform:translateY(-4px)}
+.industry i {color:var(--gold2);font-size:22px}
+.industry span {font-size:12px;color:#e6d8c5}
+
+/* PROCESS */
+.process-section {background:#19110d}
+.process-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:45px}
+.process-card {padding:25px 20px;border-top:1px solid var(--gold);background:#211711}
+.process-number {font:600 42px "Cormorant Garamond",serif;color:var(--copper);margin-bottom:15px}
+.process-card h3 {font:600 22px "Cormorant Garamond",serif;margin-bottom:8px}
+.process-card p {font-size:12px;color:var(--muted)}
+
+/* QUOTE CTA */
+.site-visit {
+  padding:75px 0;background:
+  radial-gradient(ellipse at 80% 20%,#d5a65f20,transparent 45%),
+  linear-gradient(100deg,#281b12,#15100c);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.visit-inner {display:flex;justify-content:space-between;align-items:center;gap:30px}
+.visit-inner p {color:var(--muted);font-size:13px;max-width:700px}
+
+/* FORM */
+.contact-section {background:#100b08}
+.contact-grid {display:grid;grid-template-columns:.75fr 1.25fr;gap:55px;align-items:start}
+.contact-info p {font-size:13px;color:var(--muted);margin-bottom:20px}
+.contact-method {display:flex;gap:14px;align-items:center;margin:22px 0}
+.contact-method i {width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--border);color:var(--gold2);border-radius:50%}
+.contact-method small {display:block;color:var(--muted);font-size:10px}
+.contact-method strong {font-size:13px;color:var(--cream)}
+.form-box {background:#1c140f;border:1px solid var(--border);padding:32px;border-radius:14px}
+.form-box h3 {font:600 30px "Cormorant Garamond",serif;margin-bottom:7px}
+.form-box>p {font-size:12px;color:var(--muted);margin-bottom:25px}
+.form-grid {display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.field {display:flex;flex-direction:column;gap:7px}
+.field.full {grid-column:1/-1}
+.field label {font-size:11px;color:#e3d2bd}
+.field input,.field select,.field textarea {
+  width:100%;background:#110d0a;border:1px solid #72533788;
+  color:var(--cream);padding:13px 14px;border-radius:5px;outline:none;font-size:12px;
+}
+.field input:focus,.field select:focus,.field textarea:focus {border-color:var(--gold)}
+.field textarea {min-height:105px;resize:vertical}
+.field select option {background:#19110d}
+.check-services {display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:5px}
+.check-services label {display:flex;gap:8px;align-items:center;color:var(--muted);font-size:11px}
+.check-services input {width:auto;accent-color:var(--gold)}
+.form-submit {margin-top:22px;width:100%;border:0}
+.form-note {font-size:10px;color:var(--muted);margin-top:12px}
+
+/* FAQ */
+.faq-section {background:#19110d}
+.faq-list {max-width:850px;margin:40px auto 0}
+.faq-item {border-bottom:1px solid var(--border)}
+.faq-question {
+  width:100%;background:transparent;border:0;color:var(--cream);text-align:left;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:20px 4px;font:600 22px "Cormorant Garamond",serif;
+}
+.faq-question i {color:var(--gold);font-size:13px;transition:.3s}
+.faq-answer {max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-answer p {font-size:12px;color:var(--muted);padding:0 25px 20px 4px}
+.faq-item.active .faq-answer {max-height:220px}
+.faq-item.active .faq-question i {transform:rotate(45deg)}
+
+/* FINAL CTA */
+.final-cta {text-align:center;background:linear-gradient(145deg,#2b1e16,#120d09)}
+.final-cta .section-intro {margin:0 auto 28px}
+
+/* FOOTER */
+footer {background:#0b0806;border-top:1px solid var(--border);padding:65px 0 20px}
+.footer-grid {display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:35px;margin-bottom:45px}
+.footer-brand {display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.footer-brand img {width:65px;height:65px;object-fit:contain}
+.footer-brand strong {font:700 24px "Cormorant Garamond",serif;color:var(--gold2);letter-spacing:2px}
+.footer-about p {font-size:11px;color:var(--muted);max-width:300px}
+.footer-col h4 {font:600 22px "Cormorant Garamond",serif;color:var(--gold2);margin-bottom:15px}
+.footer-col a {display:block;color:var(--muted);font-size:11px;margin:9px 0;transition:.2s}
+.footer-col a:hover {color:var(--gold2);padding-left:4px}
+.footer-bottom {border-top:1px solid #d5a65f22;padding-top:20px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.footer-bottom p {font-size:10px;color:#988775}
+
+/* FLOATING ACTIONS */
+.float-whatsapp,.back-top {
+  position:fixed;right:22px;z-index:900;border:0;display:grid;place-items:center;
+  box-shadow:0 8px 25px #0006;transition:.3s;
+}
+.float-whatsapp {
+  bottom:25px;width:54px;height:54px;border-radius:50%;background:var(--green);
+  color:#fff;font-size:25px;
+}
+.back-top {
+  bottom:92px;width:40px;height:40px;border-radius:50%;
+  background:#2a1d15;color:var(--gold2);border:1px solid var(--border);
+  opacity:0;visibility:hidden;
+}
+.back-top.show {opacity:1;visibility:visible}
+.float-whatsapp:hover,.back-top:hover {transform:translateY(-4px)}
+.toast {
+  position:fixed;left:50%;bottom:25px;transform:translate(-50%,30px);
+  background:#2b1e16;border:1px solid var(--gold);color:var(--cream);
+  padding:12px 20px;border-radius:7px;font-size:12px;z-index:1200;
+  opacity:0;visibility:hidden;transition:.3s;
+}
+.toast.show {opacity:1;visibility:visible;transform:translate(-50%,0)}
+
+/* REVEAL ANIMATIONS */
+.reveal {opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
+.reveal.visible {opacity:1;transform:translateY(0)}
+.delay-1 {transition-delay:.1s}
+.delay-2 {transition-delay:.2s}
+.delay-3 {transition-delay:.3s}
+
+/* ACCESSIBILITY */
+.skip-link {position:absolute;top:-100px;left:10px;background:var(--gold2);color:#1a1009;padding:10px;z-index:2000}
+.skip-link:focus {top:10px}
+:focus-visible {outline:2px solid var(--gold2);outline-offset:3px}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .reveal {opacity:1;transform:none}
+}
+
+/* RESPONSIVE */
+@media(max-width:1100px) {
+  .nav-links {gap:12px}
+  .nav-links a {font-size:10px}
+  .services-grid,.menu-grid {grid-template-columns:repeat(2,1fr)}
+  .industries-grid {grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:900px) {
+  .nav {min-height:72px}
+  .menu-toggle {display:block}
+  .nav-links {
+    position:fixed;top:72px;left:0;right:0;bottom:0;
+    background:#100b08f7;backdrop-filter:blur(15px);
+    display:flex;flex-direction:column;align-items:stretch;gap:0;
+    padding:20px 6%;overflow-y:auto;
+    transform:translateX(100%);transition:transform .35s ease;
+  }
+  .nav-links.open {transform:translateX(0)}
+  .nav-links a {font-size:14px;padding:15px 5px;border-bottom:1px solid var(--border)}
+  .nav-quote {display:none}
+  .hero-grid,.about-grid,.roof-grid,.contact-grid {grid-template-columns:1fr}
+  .hero {padding:75px 0}
+  .hero-visual {grid-row:1}
+  .hero-logo {width:min(65%,330px)}
+  .hero-note {right:8%;bottom:0}
+  .about-visual {min-height:330px}
+  .about-grid,.roof-grid,.contact-grid {gap:35px}
+  .process-grid {grid-template-columns:repeat(2,1fr)}
+  .footer-grid {grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px) {
+  section {padding:72px 0}
+  .hero {min-height:auto;padding:55px 0 70px}
+  .hero-grid {gap:35px}
+  .hero h1 {font-size:49px}
+  .hero-copy {font-size:13px}
+  .hero-logo {width:min(75%,280px)}
+  .hero-note {position:relative;right:auto;bottom:auto;margin:15px auto 0}
+  .hero-visual {display:block;text-align:center}
+  .hero-visual .hero-logo {margin:auto}
+  .trust-items {justify-content:flex-start}
+  .trust-item {width:calc(50% - 10px)}
+  .section-heading,.visit-inner {display:block}
+  .section-heading .btn,.visit-inner .btn {margin-top:22px}
+  .services-grid,.menu-grid,.packages-grid,.industries-grid,.process-grid {grid-template-columns:1fr}
+  .service-card {min-height:auto}
+  .flow-list {grid-template-columns:1fr}
+  .about-points {grid-template-columns:1fr}
+  .form-box {padding:22px 17px}
+  .form-grid {grid-template-columns:1fr}
+  .field.full {grid-column:auto}
+  .check-services {grid-template-columns:1fr}
+  .footer-grid {grid-template-columns:1fr 1fr;gap:25px}
+  .footer-grid>div:first-child {grid-column:1/-1}
+  .footer-brand img {width:52px;height:52px}
+  .footer-brand strong {font-size:19px}
+  .footer-bottom {display:block}
+  .footer-bottom p {margin:7px 0}
+}
+@media(max-width:380px) {
+  .brand img {width:43px;height:43px}
+  .brand-copy strong {font-size:17px}
+  .brand-copy span {font-size:7px}
+  .hero h1 {font-size:42px}
+  .hero-buttons .btn {width:100%}
+}
+</style>
 </head>
 
 <body>
-  <div class="scroll-progress" id="scrollProgress"></div>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress" id="progress"></div>
 
-  <!-- Header -->
-  <header class="header" id="header">
-    <div class="container nav">
-      <a href="#home" class="brand" aria-label="Rakshodaya home">
-        <span class="brand-mark">R</span>
-        <span class="brand-name">RAKSHODAYA</span>
-      </a>
+<!-- LOADER -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <img src="logo.png" class="loader-logo" alt="">
+    <div class="loader-name">MAPOWE COMPANY SP</div>
+    <div class="loader-line"></div>
+  </div>
+</div>
 
-      <button class="menu-toggle" id="menuToggle"
-        aria-label="Open navigation menu"
-        aria-expanded="false">
-        ☰
-      </button>
+<!-- HEADER -->
+<header>
+<nav class="nav" aria-label="Main navigation">
+  <a href="#home" class="brand" aria-label="Mapowe home">
+    <img src="logo.png" alt="Mapowe logo">
+    <span class="brand-copy">
+      <strong>MAPOWE</strong>
+      <span>COMPANY SP</span>
+    </span>
+  </a>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#vision">Our Vision</a></li>
-        <li><a href="#focus">What We Do</a></li>
-        <li><a href="#contact" class="nav-cta">Contact Us</a></li>
-      </ul>
-    </div>
-  </header>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#packages">Packages</a>
+    <a href="#industries">Industries</a>
+    <a href="#process">Our Process</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-content">
-          <div class="eyebrow">Welcome to Rakshodaya</div>
-          <h1>Building a <span>Brighter</span> Future</h1>
-          <p class="hero-description">
-            A vision for meaningful progress, purposeful action,
-            and a future shaped by ideas, dedication, and collective effort.
-          </p>
+  <div class="nav-actions">
+    <a href="#contact" class="btn btn-primary nav-quote">Request a Quote</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</nav>
+</header>
 
-          <div class="hero-actions">
-            <a href="#about" class="btn">Discover Our Story <span>→</span></a>
-            <a href="#contact" class="btn btn-outline">Connect With Us</a>
-          </div>
+<main id="main">
 
-          <p class="hero-note">VISION · PURPOSE · PROGRESS</p>
-        </div>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-content reveal">
+      <div class="hero-kicker">Integrated Manpower & Facility Management Services</div>
+      <h1>Your Facility.<br><span>Our People.</span><br>One Reliable Partner.</h1>
+      <p class="hero-copy">
+        MAPOWE COMPANY SP provides professional manpower and facility management services including security personnel, contract labour, housekeeping, housekeeping supervisors, fire safety personnel, lawn maintenance, window cleaning and pest control services.
+      </p>
+      <div class="service-ribbon">
+        Security <span> | </span> Manpower <span> | </span> Housekeeping <span> | </span>
+        Fire Safety <span> | </span> Landscaping <span> | </span> Window Cleaning <span> | </span> Pest Control
       </div>
-    </section>
-
-    <!-- About -->
-    <section class="about" id="about">
-      <div class="container about-grid">
-        <div class="about-visual reveal">
-          <img
-            class="about-image"
-            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1000&q=85"
-            alt="Mountain landscape"
-            loading="lazy"
-          >
-          <div class="about-accent"></div>
-        </div>
-
-        <div class="about-content reveal">
-          <div class="eyebrow">Who We Are</div>
-          <h2>A Purpose-Driven Journey</h2>
-          <p>
-            Rakshodaya is a name that represents a vision of growth,
-            purpose, and positive transformation.
-          </p>
-          <p>
-            Our goal is to build a meaningful presence through
-            thoughtful planning, commitment, and a forward-looking
-            approach.
-          </p>
-          <p>
-            We believe that lasting progress begins with a clear
-            purpose and grows through consistent action.
-          </p>
-          <a href="#vision" class="text-link">Explore Our Vision <span>→</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Vision -->
-    <section class="vision" id="vision">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="eyebrow">Our Direction</div>
-          <h2>Driven by Purpose, Guided by Vision</h2>
-          <p class="section-intro">
-            Our guiding principles shape the way we approach
-            opportunities, challenges, and the future.
-          </p>
-        </div>
-
-        <div class="vision-grid">
-          <article class="vision-card reveal">
-            <div class="vision-number">01</div>
-            <h3>Our Vision</h3>
-            <p>
-              To establish a meaningful and lasting presence
-              through purposeful work and a clear direction.
-            </p>
-          </article>
-
-          <article class="vision-card reveal">
-            <div class="vision-number">02</div>
-            <h3>Our Mission</h3>
-            <p>
-              To pursue our goals with dedication, thoughtful
-              execution, and a commitment to continuous progress.
-            </p>
-          </article>
-
-          <article class="vision-card reveal">
-            <div class="vision-number">03</div>
-            <h3>Our Values</h3>
-            <p>
-              To place integrity, responsibility, collaboration,
-              and quality at the centre of our work.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- What We Do -->
-    <section class="focus" id="focus">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="eyebrow">Our Approach</div>
-          <h2>Ideas Into Action</h2>
-          <p class="section-intro">
-            Our approach is built around thoughtful decisions,
-            meaningful relationships, and a commitment to progress.
-          </p>
-        </div>
-
-        <div class="focus-grid">
-          <article class="focus-card reveal">
-            <div class="focus-icon">✦</div>
-            <h3>Purposeful Planning</h3>
-            <p>
-              Setting clear goals and creating thoughtful
-              strategies to move forward with direction.
-            </p>
-            <a href="#contact">Learn More →</a>
-          </article>
-
-          <article class="focus-card reveal">
-            <div class="focus-icon">◇</div>
-            <h3>Innovation</h3>
-            <p>
-              Exploring fresh perspectives and practical
-              ideas to respond to changing opportunities.
-            </p>
-            <a href="#contact">Learn More →</a>
-          </article>
-
-          <article class="focus-card reveal">
-            <div class="focus-icon">◎</div>
-            <h3>Collaboration</h3>
-            <p>
-              Building connections and working together
-              to create meaningful outcomes.
-            </p>
-            <a href="#contact">Learn More →</a>
-          </article>
-
-          <article class="focus-card reveal">
-            <div class="focus-icon">⌁</div>
-            <h3>Quality & Excellence</h3>
-            <p>
-              Giving attention to detail and maintaining
-              high standards in everything we undertake.
-            </p>
-            <a href="#contact">Learn More →</a>
-          </article>
-
-          <article class="focus-card reveal">
-            <div class="focus-icon">✧</div>
-            <h3>Responsible Growth</h3>
-            <p>
-              Taking a considered approach to growth,
-              sustainability, and long-term impact.
-            </p>
-            <a href="#contact">Learn More →</a>
-          </article>
-
-          <article class="focus-card reveal">
-            <div class="focus-icon">↗</div>
-            <h3>Future Readiness</h3>
-            <p>
-              Staying open to learning, adapting,
-              and preparing for new possibilities.
-            </p>
-            <a href="#contact">Learn More →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Statement -->
-    <section class="statement">
-      <div class="container reveal">
-        <div class="eyebrow">The Rakshodaya Perspective</div>
-        <h2>Every meaningful journey begins with a vision.</h2>
-        <p>
-          With clarity of purpose and commitment to progress,
-          we look forward to creating opportunities for a
-          better tomorrow.
-        </p>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact" id="contact">
-      <div class="container contact-grid">
-        <div class="contact-info reveal">
-          <div class="eyebrow">Get In Touch</div>
-          <h2>Let's Start a Conversation</h2>
-          <p>
-            Have a question, an idea, or an opportunity to discuss?
-            Reach out to us. We would be glad to hear from you.
-          </p>
-
-          <div class="contact-detail">
-            <div class="contact-detail-icon">✉</div>
-            <div>
-              <strong>Email</strong>
-              <span>your-email@example.com</span>
-            </div>
-          </div>
-
-          <div class="contact-detail">
-            <div class="contact-detail-icon">⌖</div>
-            <div>
-              <strong>Location</strong>
-              <span>Your location or business address</span>
-            </div>
-          </div>
-
-          <div class="contact-detail">
-            <div class="contact-detail-icon">☎</div>
-            <div>
-              <strong>Phone</strong>
-              <span>+91 XXXXX XXXXX</span>
-            </div>
-          </div>
-        </div>
-
-        <form class="contact-form reveal" id="contactForm">
-          <h3>Send Us a Message</h3>
-
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name"
-              placeholder="Enter your name" required>
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email"
-              placeholder="Enter your email" required>
-          </div>
-
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject"
-              placeholder="What is this regarding?" required>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message"
-              placeholder="Write your message here..." required></textarea>
-          </div>
-
-          <button type="submit" class="btn">Send Message →</button>
-          <p class="form-message" id="formMessage" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="#home" class="brand">
-            <span class="brand-mark">R</span>
-            <span class="brand-name">RAKSHODAYA</span>
-          </a>
-          <p class="footer-description">
-            A vision for meaningful progress, purposeful action,
-            and a brighter future.
-          </p>
-        </div>
-
-        <div>
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#vision">Our Vision</a></li>
-            <li><a href="#focus">What We Do</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Connect</h3>
-          <ul class="footer-links">
-            <li><a href="mailto:your-email@example.com">Email Us</a></li>
-            <li><a href="#contact">Send an Enquiry</a></li>
-            <!-- Add your actual social media links here -->
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>© <span id="year"></span> Rakshodaya. All rights reserved.</p>
-        <div class="social-links">
-          <a href="#home" aria-label="Back to top">Back to Top ↑</a>
-        </div>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-file-signature"></i> Request a Quote</a>
+        <a href="tel:+910000000000" class="btn btn-outline" id="heroCall"><i class="fa-solid fa-phone"></i> Call Us</a>
       </div>
     </div>
-  </footer>
+    <div class="hero-visual reveal delay-2">
+      <img src="logo.png" alt="Mapowe Company SP emblem" class="hero-logo">
+      <div class="hero-note">
+        <strong>One Service Partner</strong>
+        Multiple facility requirements, coordinated through one point of contact.
+      </div>
+    </div>
+  </div>
+</section>
 
-  <button class="back-to-top" id="backToTop"
-    aria-label="Back to top">↑</button>
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="container trust-items">
+    <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> Security Support</div>
+    <div class="trust-item"><i class="fa-solid fa-people-group"></i> Workforce Coordination</div>
+    <div class="trust-item"><i class="fa-solid fa-building"></i> Facility Services</div>
+    <div class="trust-item"><i class="fa-solid fa-clipboard-check"></i> Tailored Proposals</div>
+  </div>
+</div>
 
-  <script>
-    // Mobile navigation
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+<!-- ABOUT -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-visual reveal">
+      <img src="logo.png" alt="Mapowe Company SP logo" class="about-emblem">
+    </div>
+    <div class="about-copy reveal delay-1">
+      <div class="section-label">About Mapowe</div>
+      <h2 class="section-title">People, Processes & <span class="gold-text">Professional Support</span></h2>
+      <p>
+        Managing a facility requires dependable people, coordinated services and consistent attention to daily operations. MAPOWE COMPANY SP brings together manpower and facility support services to help organizations manage their operational requirements.
+      </p>
+      <p>
+        From security personnel and housekeeping teams to landscaping, cleaning and facility support, our approach is designed around each property's needs, scope of work and preferred service arrangement.
+      </p>
+      <div class="about-points">
+        <div class="about-point">Service requirements tailored to your facility</div>
+        <div class="about-point">Multiple support services under one partner</div>
+        <div class="about-point">Workforce and site coordination</div>
+        <div class="about-point">Quotation and site assessment options</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    menuToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", isOpen);
-      menuToggle.textContent = isOpen ? "×" : "☰";
-    });
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div>
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Our Core <span class="gold-text">Services</span></h2>
+        <p class="section-intro">A flexible service menu for properties and organizations with different manpower and facility needs.</p>
+      </div>
+      <a href="#contact" class="btn btn-outline">Discuss Your Requirements <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
 
-    // Close mobile menu after selecting a link
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.textContent = "☰";
-      });
-    });
+    <div class="services-grid">
+      <article class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Security Services</h3>
+        <p>Security personnel for residential, commercial, industrial and institutional facilities, with options for access support, visitor coordination and patrolling.</p>
+        <a href="#contact">Enquire about security <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
 
-    // Header and scroll progress
-    const header = document.getElementById("header");
-    const progress = document.getElementById("scrollProgress");
-    const backToTop = document.getElementById("backToTop");
+      <article class="service-card reveal delay-1">
+        <div class="service-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+        <h3>Contract Labour</h3>
+        <p>Daily, temporary and longer-term skilled and unskilled manpower, including general workers and warehouse or loading support.</p>
+        <a href="#contact">Enquire about manpower <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
 
-    function handleScroll() {
-      const scrollTop = window.scrollY;
-      const scrollable =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const percentage = scrollable > 0
-        ? (scrollTop / scrollable) * 100
-        : 0;
+      <article class="service-card reveal delay-2">
+        <div class="service-icon"><i class="fa-solid fa-broom"></i></div>
+        <h3>Housekeeping</h3>
+        <p>Housekeeping staff and supervisors for offices, residential communities, commercial properties and industrial facilities.</p>
+        <a href="#contact">Enquire about housekeeping <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
 
-      progress.style.width = percentage + "%";
-      header.classList.toggle("scrolled", scrollTop > 30);
-      backToTop.classList.toggle("visible", scrollTop > 450);
-    }
+      <article class="service-card reveal delay-3">
+        <div class="service-icon"><i class="fa-solid fa-fire-extinguisher"></i></div>
+        <h3>Fire & Safety Personnel</h3>
+        <p>Fire-safety and standby personnel for facilities requiring dedicated safety support, subject to the applicable training and compliance requirements.</p>
+        <a href="#contact">Enquire about fire safety <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+      <article class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-seedling"></i></div>
+        <h3>Landscaping & Lawn Care</h3>
+        <p>Routine lawn cutting, gardening, grass maintenance and garden upkeep for residential and commercial properties.</p>
+        <a href="#contact">Enquire about landscaping <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
 
-    // Back to top
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+      <article class="service-card reveal delay-1">
+        <div class="service-icon"><i class="fa-solid fa-building"></i></div>
+        <h3>Window & Glass Cleaning</h3>
+        <p>Window, glass and building cleaning support according to site conditions, access requirements and the agreed scope of work.</p>
+        <a href="#contact">Enquire about cleaning <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
 
-    // Scroll reveal
-    const revealElements = document.querySelectorAll(".reveal");
+      <article class="service-card reveal delay-2">
+        <div class="service-icon"><i class="fa-solid fa-bug-slash"></i></div>
+        <h3>Pest Control</h3>
+        <p>Residential and commercial pest management requirements, including preventive pest-management support where appropriately qualified.</p>
+        <a href="#contact">Enquire about pest control <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
 
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
+      <article class="service-card reveal delay-3">
+        <div class="service-icon"><i class="fa-solid fa-gears"></i></div>
+        <h3>Facility Management Support</h3>
+        <p>Customized manpower deployment, multi-service contracts, site supervision and workforce coordination for facility operations.</p>
+        <a href="#contact">Plan facility support <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+    </div>
+  </div>
+</section>
 
-      revealElements.forEach(element => observer.observe(element));
-    } else {
-      revealElements.forEach(element => element.classList.add("active"));
-    }
+<!-- COMPLETE SERVICE MENU -->
+<section class="menu-section">
+  <div class="container">
+    <div class="section-label reveal">Detailed Service Menu</div>
+    <h2 class="section-title reveal">Support for Your <span class="gold-text">Daily Operations</span></h2>
+    <p class="section-intro reveal">Select individual service categories or combine requirements into a coordinated facility support proposal.</p>
 
-    // Current year
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <h3>Security</h3>
+        <ul>
+          <li>Security Guards</li>
+          <li>Security Supervisors</li>
+          <li>Access Control Support</li>
+          <li>Visitor Management</li>
+          <li>Patrolling</li>
+        </ul>
+      </div>
+      <div class="menu-card reveal delay-1">
+        <h3>Manpower</h3>
+        <ul>
+          <li>Daily Contract Labour</li>
+          <li>Skilled Labour</li>
+          <li>Unskilled Labour</li>
+          <li>General Workers</li>
+          <li>Warehouse & Loading Labour</li>
+        </ul>
+      </div>
+      <div class="menu-card reveal delay-2">
+        <h3>Housekeeping</h3>
+        <ul>
+          <li>Housekeeping Staff</li>
+          <li>Housekeeping Supervisors</li>
+          <li>Office Cleaning</li>
+          <li>Society Cleaning</li>
+          <li>Industrial Cleaning</li>
+        </ul>
+      </div>
+      <div class="menu-card reveal delay-3">
+        <h3>Fire & Safety</h3>
+        <ul>
+          <li>Fire Fighters</li>
+          <li>Fire Safety Personnel</li>
+          <li>Fire Watch Support</li>
+          <li>Standby Personnel</li>
+          <li>Site Safety Support</li>
+        </ul>
+      </div>
+      <div class="menu-card reveal">
+        <h3>Landscaping</h3>
+        <ul>
+          <li>Gardeners</li>
+          <li>Lawn Cutting</li>
+          <li>Grass Maintenance</li>
+          <li>Garden Maintenance</li>
+          <li>Routine Upkeep</li>
+        </ul>
+      </div>
+      <div class="menu-card reveal delay-1">
+        <h3>Cleaning</h3>
+        <ul>
+          <li>Window Cleaning</li>
+          <li>Glass Cleaning</li>
+          <li>Building Cleaning</li>
+          <li>Deep Cleaning</li>
+          <li>Common Area Cleaning</li>
+        </ul>
+      </div>
+      <div class="menu-card reveal delay-2">
+        <h3>Pest Control</h3>
+        <ul>
+          <li>General Pest Control</li>
+          <li>Commercial Pest Control</li>
+          <li>Residential Pest Control</li>
+          <li>Preventive Pest Management</li>
+          <li>Site-specific Planning</li>
+        </ul>
+      </div>
+      <div class="menu-card reveal delay-3">
+        <h3>Integrated Support</h3>
+        <ul>
+          <li>Customized Deployment</li>
+          <li>Multi-service Contracts</li>
+          <li>Site Supervision</li>
+          <li>Workforce Coordination</li>
+          <li>Facility Support Planning</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    // Contact form: opens the visitor's email application.
-    // Replace this address with Rakshodaya's actual email.
-    const contactForm = document.getElementById("contactForm");
-    const formMessage = document.getElementById("formMessage");
+<!-- PACKAGES -->
+<section id="packages">
+  <div class="container">
+    <div class="section-label reveal">Integrated Solutions</div>
+    <h2 class="section-title reveal">Facility Management <span class="gold-text">Packages</span></h2>
+    <p class="section-intro reveal">Illustrative service combinations. Final staffing, scope, schedule and pricing can be customized after understanding your facility.</p>
 
-    contactForm.addEventListener("submit", (event) => {
-      event.preventDefault();
+    <div class="packages-grid">
+      <article class="package reveal">
+        <h3>Essential Facility</h3>
+        <p>For apartments, offices and commercial buildings seeking core daily support.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Security personnel</li>
+          <li><i class="fa-solid fa-check"></i> Housekeeping support</li>
+          <li><i class="fa-solid fa-check"></i> Basic service coordination</li>
+          <li><i class="fa-solid fa-check"></i> Customized staffing proposal</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Request Proposal</a>
+      </article>
 
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const subject = document.getElementById("subject").value.trim();
-      const message = document.getElementById("message").value.trim();
+      <article class="package featured reveal delay-1">
+        <span class="package-tag">MULTI-SERVICE OPTION</span>
+        <h3>Complete Facility</h3>
+        <p>For residential communities, offices and commercial properties with broader requirements.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Security services</li>
+          <li><i class="fa-solid fa-check"></i> Housekeeping teams</li>
+          <li><i class="fa-solid fa-check"></i> Supervisory support</li>
+          <li><i class="fa-solid fa-check"></i> Landscaping and pest-control planning</li>
+          <li><i class="fa-solid fa-check"></i> Coordinated service proposal</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Request Proposal</a>
+      </article>
 
-      const recipient = "your-email@example.com";
+      <article class="package reveal delay-2">
+        <h3>Custom Facility</h3>
+        <p>For facilities that need a combination of specific services and workforce arrangements.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Choose required service categories</li>
+          <li><i class="fa-solid fa-check"></i> Define staffing needs</li>
+          <li><i class="fa-solid fa-check"></i> Set site-specific scope</li>
+          <li><i class="fa-solid fa-check"></i> Discuss deployment schedule</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Build Your Package</a>
+      </article>
+    </div>
+  </div>
+</section>
 
-      if (!name || !email || !subject || !message) {
-        formMessage.textContent = "Please complete all fields.";
-        return;
+<!-- ONE ROOF -->
+<section class="roof">
+  <div class="container roof-grid">
+    <div class="roof-copy reveal">
+      <div class="section-label">The Mapowe Approach</div>
+      <h2 class="section-title">Complete Facility Support <span class="gold-text">Under One Roof</span></h2>
+      <p>
+        Managing a facility can involve multiple teams, vendors and schedules. MAPOWE COMPANY SP aims to simplify service coordination by bringing together manpower and facility support options through one service partner.
+      </p>
+      <p>
+        Tell us what your property needs. We can discuss a suitable combination of services, staffing and supervision based on your requirements.
+      </p>
+      <a href="#contact" class="btn btn-primary">Discuss Your Facility</a>
+    </div>
+    <div class="flow-list reveal delay-1">
+      <div class="flow-item"><i class="fa-solid fa-shield-halved"></i><span>Security</span></div>
+      <div class="flow-item"><i class="fa-solid fa-broom"></i><span>Housekeeping</span></div>
+      <div class="flow-item"><i class="fa-solid fa-user-tie"></i><span>Supervisors</span></div>
+      <div class="flow-item"><i class="fa-solid fa-fire-extinguisher"></i><span>Fire Safety</span></div>
+      <div class="flow-item"><i class="fa-solid fa-leaf"></i><span>Landscaping</span></div>
+      <div class="flow-item"><i class="fa-solid fa-spray-can-sparkles"></i><span>Cleaning</span></div>
+      <div class="flow-item"><i class="fa-solid fa-bug-slash"></i><span>Pest Control</span></div>
+      <div class="flow-item"><i class="fa-solid fa-people-group"></i><span>Contract Labour</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="container">
+    <div class="section-label reveal">Who We Support</div>
+    <h2 class="section-title reveal">Industries & <span class="gold-text">Facilities</span></h2>
+    <p class="section-intro reveal">Service arrangements can be discussed for a wide range of property types and operational environments.</p>
+
+    <div class="industries-grid">
+      <div class="industry reveal"><i class="fa-solid fa-building"></i><span>Corporate Offices</span></div>
+      <div class="industry reveal delay-1"><i class="fa-solid fa-house"></i><span>Residential Apartments & Societies</span></div>
+      <div class="industry reveal delay-2"><i class="fa-solid fa-industry"></i><span>Factories & Manufacturing Units</span></div>
+      <div class="industry reveal delay-3"><i class="fa-solid fa-helmet-safety"></i><span>Construction Sites</span></div>
+      <div class="industry reveal"><i class="fa-solid fa-hotel"></i><span>Hotels & Hospitality</span></div>
+      <div class="industry reveal delay-1"><i class="fa-solid fa-hospital"></i><span>Hospitals & Healthcare</span></div>
+      <div class="industry reveal delay-2"><i class="fa-solid fa-school"></i><span>Schools & Colleges</span></div>
+      <div class="industry reveal delay-3"><i class="fa-solid fa-cart-shopping"></i><span>Malls & Retail</span></div>
+      <div class="industry reveal"><i class="fa-solid fa-warehouse"></i><span>Warehouses & Logistics</span></div>
+      <div class="industry reveal delay-1"><i class="fa-solid fa-city"></i><span>Commercial Buildings</span></div>
+      <div class="industry reveal delay-2"><i class="fa-solid fa-laptop"></i><span>IT & Business Parks</span></div>
+      <div class="industry reveal delay-3"><i class="fa-solid fa-landmark"></i><span>Institutions</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section" id="process">
+  <div class="container">
+    <div class="section-label reveal">How It Works</div>
+    <h2 class="section-title reveal">A Clear Path from Enquiry <span class="gold-text">to Service Planning</span></h2>
+    <p class="section-intro reveal">A straightforward process to understand your site and prepare a proposal around the services you need.</p>
+
+    <div class="process-grid">
+      <article class="process-card reveal">
+        <div class="process-number">01</div>
+        <h3>Share Requirements</h3>
+        <p>Tell us about your property, location, required services, staffing and preferred start date.</p>
+      </article>
+      <article class="process-card reveal delay-1">
+        <div class="process-number">02</div>
+        <h3>Site Assessment</h3>
+        <p>Where appropriate, discuss a site visit to understand the property, scope and operational conditions.</p>
+      </article>
+      <article class="process-card reveal delay-2">
+        <div class="process-number">03</div>
+        <h3>Receive a Proposal</h3>
+        <p>Review a proposed service combination, staffing plan, schedule and commercial terms.</p>
+      </article>
+      <article class="process-card reveal delay-3">
+        <div class="process-number">04</div>
+        <h3>Plan Deployment</h3>
+        <p>After agreement, coordinate the service commencement plan and applicable onboarding requirements.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SITE VISIT CTA -->
+<section class="site-visit">
+  <div class="container visit-inner reveal">
+    <div>
+      <div class="section-label">Request a Site Visit</div>
+      <h2 class="section-title">Need a Facility Service?</h2>
+      <p>Tell us about your property and requirements. Our team can discuss your manpower and facility service needs and the possibility of a site assessment.</p>
+    </div>
+    <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Request a Site Visit</a>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-label reveal">Start a Conversation</div>
+    <h2 class="section-title reveal">Request a Quote or <span class="gold-text">Site Visit</span></h2>
+    <p class="section-intro reveal">Share the details below to prepare an enquiry message. You can review it in WhatsApp before sending.</p>
+
+    <div class="contact-grid" style="margin-top:45px">
+      <div class="contact-info reveal">
+        <h3 class="section-title" style="font-size:34px">Let's Understand Your Requirements</h3>
+        <p>Whether you need a single service or a combination of facility support options, provide a few details so the discussion can start with the right context.</p>
+
+        <div class="contact-method">
+          <i class="fa-brands fa-whatsapp"></i>
+          <div><small>WhatsApp Enquiries</small><strong>Start an enquiry conversation</strong></div>
+        </div>
+        <div class="contact-method">
+          <i class="fa-solid fa-phone"></i>
+          <div><small>Phone</small><strong>Call our team</strong></div>
+        </div>
+        <div class="contact-method">
+          <i class="fa-solid fa-location-dot"></i>
+          <div><small>Service Location</small><strong>Share your property location in the form</strong></div>
+        </div>
+        <p style="font-size:11px">Contact details can be updated in the website code once your official business number and email are finalized.</p>
+      </div>
+
+      <form class="form-box reveal delay-1" id="enquiryForm">
+        <h3>Facility Service Enquiry</h3>
+        <p>Fields marked with * are required.</p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="customerName">Name *</label>
+            <input id="customerName" name="name" required autocomplete="name" placeholder="Your full name">
+          </div>
+          <div class="field">
+            <label for="companyName">Company / Property Name</label>
+            <input id="companyName" name="company" placeholder="Company or property">
+          </div>
+          <div class="field">
+            <label for="phone">Phone *</label>
+            <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="Your contact number">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com">
+          </div>
+          <div class="field">
+            <label for="location">Location *</label>
+            <input id="location" name="location" required placeholder="Area, city">
+          </div>
+          <div class="field">
+            <label for="propertyType">Property Type</label>
+            <select id="propertyType" name="propertyType">
+              <option value="">Select property type</option>
+              <option>Corporate Office</option>
+              <option>Residential Apartment / Society</option>
+              <option>Factory / Manufacturing</option>
+              <option>Construction Site</option>
+              <option>Hotel / Hospitality</option>
+              <option>Hospital / Healthcare</option>
+              <option>School / College</option>
+              <option>Mall / Retail</option>
+              <option>Warehouse / Logistics</option>
+              <option>Commercial Building</option>
+              <option>IT / Business Park</option>
+              <option>Institution</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="propertySize">Approximate Property Size</label>
+            <input id="propertySize" name="propertySize" placeholder="e.g. 25,000 sq. ft.">
+          </div>
+          <div class="field">
+            <label for="startDate">Preferred Start Date</label>
+            <input id="startDate" name="startDate" type="date">
+          </div>
+
+          <div class="field full">
+            <label>Services Required</label>
+            <div class="check-services">
+              <label><input type="checkbox" name="service" value="Security Services"> Security Services</label>
+              <label><input type="checkbox" name="service" value="Contract Labour"> Contract Labour</label>
+              <label><input type="checkbox" name="service" value="Housekeeping"> Housekeeping</label>
+              <label><input type="checkbox" name="service" value="Fire & Safety Personnel"> Fire & Safety Personnel</label>
+              <label><input type="checkbox" name="service" value="Landscaping & Lawn Care"> Landscaping & Lawn Care</label>
+              <label><input type="checkbox" name="service" value="Window & Glass Cleaning"> Window & Glass Cleaning</label>
+              <label><input type="checkbox" name="service" value="Pest Control"> Pest Control</label>
+              <label><input type="checkbox" name="service" value="Facility Management Support"> Facility Management Support</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="guards">Number of Guards</label>
+            <input id="guards" name="guards" type="number" min="0" placeholder="If applicable">
+          </div>
+          <div class="field">
+            <label for="housekeepingStaff">Housekeeping Staff</label>
+            <input id="housekeepingStaff" name="housekeepingStaff" type="number" min="0" placeholder="If applicable">
+          </div>
+          <div class="field">
+            <label for="labourers">Number of Labourers</label>
+            <input id="labourers" name="labourers" type="number" min="0" placeholder="If applicable">
+          </div>
+          <div class="field">
+            <label for="requestType">Enquiry Type</label>
+            <select id="requestType" name="requestType">
+              <option>Request a Quote</option>
+              <option>Request a Site Visit</option>
+              <option>Discuss a Facility Package</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="otherRequirements">Other Requirements</label>
+            <textarea id="otherRequirements" name="otherRequirements" placeholder="Describe your requirements, schedule, number of shifts or any other details."></textarea>
+          </div>
+        </div>
+
+        <button class="btn btn-primary form-submit" type="submit">
+          <i class="fa-brands fa-whatsapp"></i> Prepare Enquiry in WhatsApp
+        </button>
+        <p class="form-note">Your browser will open WhatsApp with a prepared message. Review the details and press Send in WhatsApp to submit your enquiry.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-label reveal" style="text-align:center">Frequently Asked Questions</div>
+    <h2 class="section-title reveal" style="text-align:center">Questions About <span class="gold-text">Our Services</span></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can I request only one service? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-answer"><p>Yes. You can enquire about an individual service or discuss a combination of services based on your property's requirements.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Do you provide customized facility packages? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-answer"><p>The website presents illustrative package combinations. Final service scope, availability, staffing, schedules and pricing need to be discussed and confirmed directly.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can I request a site visit before receiving a quote? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-answer"><p>You can request a site visit through the enquiry form. The team can discuss whether an assessment is suitable and arrange details directly.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">What information should I provide for a quotation? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-answer"><p>Property type, location, services required, approximate property size, number of personnel, working shifts and preferred start date can help with initial proposal planning.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Are fire safety and pest control services subject to qualifications? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-answer"><p>Yes. These services can involve specific training, licences, equipment and regulatory requirements. The actual service scope should be confirmed according to the applicable rules and the qualifications available.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Does submitting the website form automatically book a service? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-answer"><p>No. The form prepares an enquiry message in WhatsApp. A service is not booked until the requirements, availability, scope and commercial terms have been agreed separately.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container reveal">
+    <div class="section-label">Your Facility, Your Requirements</div>
+    <h2 class="section-title">Let's Plan the Right <span class="gold-text">Support Together</span></h2>
+    <p class="section-intro">Start with a conversation about your facility, staffing requirements and service expectations.</p>
+    <div class="hero-buttons" style="justify-content:center;margin-top:28px">
+      <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-file-signature"></i> Request a Quote</a>
+      <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-calendar-check"></i> Request a Site Visit</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="footer-brand">
+          <img src="logo.png" alt="Mapowe logo">
+          <strong>MAPOWE</strong>
+        </div>
+        <p>MAPOWE COMPANY SP<br>Integrated Manpower & Facility Management Services.</p>
+        <p style="margin-top:14px">Security | Manpower | Housekeeping | Fire Safety | Landscaping | Window Cleaning | Pest Control</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#about">About Us</a>
+        <a href="#services">Our Services</a>
+        <a href="#packages">Facility Packages</a>
+        <a href="#industries">Industries</a>
+        <a href="#process">Our Process</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Security</a>
+        <a href="#services">Contract Labour</a>
+        <a href="#services">Housekeeping</a>
+        <a href="#services">Fire & Safety</a>
+        <a href="#services">Facility Support</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <a href="#contact">Request a Quote</a>
+        <a href="#contact">Request a Site Visit</a>
+        <a href="tel:+910000000000" id="footerCall">Call Us</a>
+        <a href="#contact">Send an Enquiry</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> MAPOWE COMPANY SP. All rights reserved.</p>
+      <p>Integrated Manpower & Facility Management Services</p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a href="#" class="float-whatsapp" id="whatsappFloat" aria-label="WhatsApp Mapowe">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+<button class="back-top" id="backTop" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================
+   MAPOWE COMPANY SP — WEBSITE INTERACTIONS
+   Update the phone number below before publishing.
+   Use country code and number only, no plus sign.
+===================================================== */
+
+const CONFIG = {
+  whatsapp: "910000000000",
+  phone: "+910000000000"
+};
+
+const $ = (selector, root=document) => root.querySelector(selector);
+const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
+
+/* LOADER */
+window.addEventListener("load", () => {
+  setTimeout(() => $("#loader")?.classList.add("hide"), 700);
+});
+setTimeout(() => $("#loader")?.classList.add("hide"), 3000);
+
+/* MOBILE NAVIGATION */
+const menuToggle = $("#menuToggle");
+const navLinks = $("#navLinks");
+
+function setMenu(open) {
+  navLinks.classList.toggle("open", open);
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  menuToggle.innerHTML = open
+    ? '<i class="fa-solid fa-xmark"></i>'
+    : '<i class="fa-solid fa-bars"></i>';
+  document.body.classList.toggle("no-scroll", open && window.innerWidth <= 900);
+}
+
+menuToggle.addEventListener("click", () => {
+  setMenu(!navLinks.classList.contains("open"));
+});
+
+$$("a", navLinks).forEach(link => {
+  link.addEventListener("click", () => setMenu(false));
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") setMenu(false);
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 900) setMenu(false);
+});
+
+/* SCROLL PROGRESS AND BACK TO TOP */
+const progress = $("#progress");
+const backTop = $("#backTop");
+
+function updateScroll() {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const percentage = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+  progress.style.width = percentage + "%";
+  backTop.classList.toggle("show", window.scrollY > 450);
+}
+window.addEventListener("scroll", updateScroll, {passive:true});
+updateScroll();
+
+backTop.addEventListener("click", () => {
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+
+/* REVEAL ON SCROLL */
+const revealElements = $$(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
       }
-
-      const body =
-        "Name: " + name + "\n" +
-        "Email: " + email + "\n\n" +
-        message;
-
-      const mailto =
-        "mailto:" + recipient +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
-
-      formMessage.textContent =
-        "Your email application will open to send the message.";
-
-      window.location.href = mailto;
     });
-  </script>
+  }, {threshold:0.12});
+
+  revealElements.forEach(element => revealObserver.observe(element));
+} else {
+  revealElements.forEach(element => element.classList.add("visible"));
+}
+
+/* FAQ ACCORDION */
+$$(".faq-question").forEach(button => {
+  button.addEventListener("click", () => {
+    const item = button.closest(".faq-item");
+    const isOpen = item.classList.contains("active");
+
+    $$(".faq-item").forEach(other => {
+      other.classList.remove("active");
+      $(".faq-question", other).setAttribute("aria-expanded", "false");
+    });
+
+    if (!isOpen) {
+      item.classList.add("active");
+      button.setAttribute("aria-expanded", "true");
+    }
+  });
+});
+
+/* DATE INPUT — PREVENT PAST DATE SELECTION */
+const startDate = $("#startDate");
+if (startDate) {
+  const today = new Date();
+  const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+    .toISOString().slice(0,10);
+  startDate.min = localDate;
+}
+
+/* WHATSAPP URL */
+function whatsappUrl(message) {
+  return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(message);
+}
+
+/* FLOATING WHATSAPP */
+$("#whatsappFloat").href = whatsappUrl(
+  "Hello MAPOWE COMPANY SP. I would like to enquire about your manpower and facility management services."
+);
+$("#whatsappFloat").target = "_blank";
+$("#whatsappFloat").rel = "noopener noreferrer";
+
+/* ENQUIRY FORM */
+$("#enquiryForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+
+  const data = new FormData(form);
+  const selectedServices = $$('input[name="service"]:checked', form)
+    .map(input => input.value);
+
+  const message = [
+    "MAPOWE COMPANY SP — FACILITY SERVICE ENQUIRY",
+    "",
+    "Name: " + (data.get("name") || ""),
+    "Company / Property: " + (data.get("company") || "Not provided"),
+    "Phone: " + (data.get("phone") || ""),
+    "Email: " + (data.get("email") || "Not provided"),
+    "Location: " + (data.get("location") || ""),
+    "Property Type: " + (data.get("propertyType") || "Not specified"),
+    "Approximate Property Size: " + (data.get("propertySize") || "Not specified"),
+    "Preferred Start Date: " + (data.get("startDate") || "Not specified"),
+    "",
+    "Services Required:",
+    selectedServices.length ? selectedServices.map(s => "• " + s).join("\n") : "Not selected",
+    "",
+    "Number of Guards: " + (data.get("guards") || "Not specified"),
+    "Housekeeping Staff: " + (data.get("housekeepingStaff") || "Not specified"),
+    "Number of Labourers: " + (data.get("labourers") || "Not specified"),
+    "Enquiry Type: " + (data.get("requestType") || "Request a Quote"),
+    "",
+    "Other Requirements:",
+    data.get("otherRequirements") || "Not provided",
+    "",
+    "Please contact me to discuss the next steps."
+  ].join("\n");
+
+  window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
+});
+
+/* CALL LINKS */
+const callUrl = "tel:" + CONFIG.phone;
+$("#heroCall").href = callUrl;
+$("#footerCall").href = callUrl;
+
+/* YEAR */
+$("#year").textContent = new Date().getFullYear();
+
+/* ONLINE / OFFLINE STATUS */
+window.addEventListener("offline", () => {
+  showToast("You appear to be offline. Some features may not work.");
+});
+
+/* TOAST */
+let toastTimer;
+function showToast(message) {
+  const toast = $("#toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 3500);
+}
+</script>
 </body>
 </html>

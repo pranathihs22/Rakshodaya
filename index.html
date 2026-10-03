@@ -815,9 +815,6 @@ footer { padding: 60px 0 25px; background: #100905; }
 
 <section class="section" id="about">
   <div class="container about-grid">
-    <div class="about-logo reveal">
-      <img src="logo.png" alt="Rakshodaya company logo">
-    </div>
     <div class="about-copy reveal">
       <div class="eyebrow">About Rakshodaya</div>
       <h2>People, Processes & <span class="gold">Professional Support</span></h2>
@@ -1328,3 +1325,27 @@ document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
+<style>
+/* About section: remove the duplicate logo and center the complete explanation. */
+#about .about-grid {
+  display: block;
+  width: 100%;
+  max-width: 1040px;
+  margin-inline: auto;
+}
+#about .about-copy {
+  width: 100%;
+  max-width: 940px;
+  margin: 0 auto;
+  text-align: center;
+}
+#about .about-copy .about-points {
+  text-align: left;
+  max-width: 800px;
+  margin: 28px auto 0;
+}
+@media (max-width: 640px) {
+  #about .about-copy { padding-inline: 8px; }
+  #about .about-copy .about-points { grid-template-columns: 1fr; }
+}
+</style>
